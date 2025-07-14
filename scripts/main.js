@@ -4,7 +4,8 @@ const taskContainer = document.getElementById("taskContainer");
 
 btn.addEventListener('click', function(event) {
     event.preventDefault(); 
-    if (in_t.value) {const taskRow = document.createElement('div');
+    if (in_t.value) {
+        const taskRow = document.createElement('div');
         taskRow.className = 'task-row';
 
         const check = document.createElement('input');
@@ -22,20 +23,59 @@ btn.addEventListener('click', function(event) {
         taskContainer.appendChild(taskRow); 
 
         in_t.value = ''; 
-        
-       
-        
-        check.addEventListener('click',function()
-    {
-        if (check.checked) {
-                p.style.textDecoration = 'line-through';
-    }
-        else {
-                p.style.textDecoration = 'none';} 
-});
-        del.addEventListener('click',function(){
+        save();
+
+        check.addEventListener('click', function() {
+            if (check.checked) {
+                taskText.style.textDecoration = 'line-through';
+            } else {
+                taskText.style.textDecoration = 'none';
+            } 
+            save();
+        });
+
+        del.addEventListener('click', function() {
             taskContainer.removeChild(taskRow);
-        }
-     );
+            save();
+        });
     }
 });
+
+const save = () => {
+    localStorage.setItem("t", taskContainer.innerHTML);
+};
+
+const pull = () => {
+    taskContainer.innerHTML = localStorage.getItem("t");
+    const taskRows = taskContainer.getElementsByClassName('task-row');
+
+    for (let row of taskRows) {
+        const check = row.querySelector('input[type="checkbox"]');
+        const taskText = row.querySelector('p');
+        const del = row.querySelector('button');
+
+        
+        if (check.checked) {
+            taskText.style.textDecoration = 'line-through';
+        }
+
+        
+        check.addEventListener('click', function() {
+            if (check.checked) {
+                taskText.style.textDecoration = 'line-through';
+            } else {
+                taskText.style.textDecoration = 'none';
+            }
+            save();
+        });
+
+        
+        del.addEventListener('click', function() {
+            taskContainer.removeChild(row);
+            save();
+        });
+    }
+};
+
+
+pull();
