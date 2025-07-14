@@ -41,31 +41,7 @@ flex-direction: column;
 margin-top: 20px;
 }
 
-/* .task-row {
-display: flex;
-align-items: center;
-position: relative;
 
-}
-
-.task-row input[type="checkbox"],
-.task-row button {
-width: 24px;
-height: 24px;
-margin-right: 10px;
-cursor: pointer;
-}
-#btn{
-width: 60px;
-height: 51px;
-font-size: xx-large;
-
-
-
-}
-.task{
-display: flex;
-border-radius:50px;} */
 .task-row {
   display: flex;
   align-items: center;
