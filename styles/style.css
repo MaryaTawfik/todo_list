@@ -1,0 +1,53 @@
+body {
+    text-align: center;
+    background-image: url(b2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#c1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    opacity: 0.4;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 40rem;
+    height: 30rem;
+    border: 5px solid rgb(252, 247, 248);
+    background-color: #ffb5b5;
+    border-radius: 10px;
+    margin-left: 40%;
+    margin-top: 10%;
+}
+
+#in {
+    font-size: 2em;
+    border-radius: 2%;
+}
+
+#taskContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.task-row {
+    display: flex;
+    align-items: center; /* Vertically center align items */
+}
+
+.task-row input[type="checkbox"],
+.task-row button {
+    width: 24px;  /* Set the width */
+    height: 24px; /* Set the height */
+    margin-right: 10px; /* Space between elements */
+    cursor: pointer; /* Change cursor to pointer for better UX */
+}
